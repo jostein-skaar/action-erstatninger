@@ -9,7 +9,7 @@
     "testw": "jest --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "v1:bygg": "npm run build && git add . && git commit -m \"Bygger ny versjon til dist\"",
+    "v1:bygg": "git diff HEAD && npm run build && git add . && git commit -m \"Bygger ny versjon til dist\"",
     "v1:push": "git tag -fa v1 -m \"Oppdaterer v1-taggen\" && git push && git push origin v1 --force",
     "v1:minor": "npm version minor && npm run v1:push",
     "v1:patch": "npm version patch && npm run v1:push"
