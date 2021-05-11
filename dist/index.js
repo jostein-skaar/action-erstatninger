@@ -11760,7 +11760,7 @@ function sokOgErstatt(sok, erstatt, filer, dryRun = false) {
         erstattEndelig = erstatt.replace(/^v(.*).0$/, '$1');
         console.log(`Spesialtilfelle {VERSJON}, bruker ${erstattEndelig} i stedet for ${erstatt}`);
     }
-    console.log('filerGlob', filer);
+    console.log('filer', filer);
     const regex = new RegExp(`${sok}`, 'g');
     const konfig = {
         files: filer,
@@ -11795,9 +11795,9 @@ try {
         console.error('Mangler sok, erstatt og/eller filer.');
     }
     else {
-        const antallFiler = sok_og_erstatt(sok, erstatt, filer, dryRun);
-        console.log(`Antall endrede filer: ${antallFiler}`);
-        core.setOutput('antall-filer', antallFiler);
+        const antallErstatninger = sok_og_erstatt(sok, erstatt, filer, dryRun);
+        console.log(`Antall erstatninger: ${antallErstatninger}`);
+        core.setOutput('antall-erstatninger', antallErstatninger);
     }
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2);
