@@ -11,12 +11,12 @@ jobs:
         with:
           sok: '{VERSJON}'
           erstatt: 'v1.2.3'
-          filer: 'testfiler/**/*.js'
+          filer: '/testfiler/**/*.js'
           dry-run: true
       - run: echo "Antall erstatninger ${{ steps.erstatningersteg.outputs.antall }}"
 
   bygg:
-    name: Bygg, test og lint av action for å verifisere koden
+    name: Node ${{ matrix.node_version }} - Bygg, test og lint
     runs-on: ubuntu-latest
     strategy:
       matrix: # Tester ut å bruke både Node.js 12 og 14.
@@ -37,5 +37,5 @@ jobs:
         with:
           sok: '{VERSJON}'
           erstatt: 'v1.2.3'
-          filer: 'testfiler/**/*.js'
+          filer: '/testfiler/**/*.js'
           dry-run: false
