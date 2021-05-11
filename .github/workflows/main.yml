@@ -1,0 +1,41 @@
+on: [push]
+
+jobs:
+  test:
+    name: Bruker action fra dist
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: erstatningersteg
+        uses: ./
+        with:
+          sok: '{VERSJON}'
+          erstatt: 'v1.2.3'
+          filer: 'testfiler/**/*.js'
+          dry-run: true
+      - run: echo "Antall erstatninger ${{ steps.erstatningersteg.outputs.antall }}"
+
+  bygg:
+    name: Bygg, test og lint av action for å verifisere koden
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: # Tester ut å bruke både Node.js 12 og 14.
+        node-version: [12.x, 14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          npm ci
+          npm test
+          npm run lint
+          npm run build
+
+  test2: # Sjekker at det som ligger i dist fungerer uten bygg
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          sok: '{VERSJON}'
+          erstatt: 'v1.2.3'
+          filer: 'testfiler/**/*.js'
+          dry-run: false

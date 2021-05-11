@@ -1,0 +1,30 @@
+name: 'Erstatninger'
+description: 'Søk og erstatt'
+author: 'jostyposty'
+
+inputs:
+  sok:
+    description: 'Ordet som skal erstattes'
+    default: '{VERSJON}'
+    required: true
+  erstatt:
+    description: 'Det nye ordet'
+    required: true
+  filer:
+    description: 'Hvilke filer skal søkes i (glob, en eller flere)'
+    required: true
+  dry-run:
+    description: 'Testgjennomkjøring?'
+    required: false
+
+outputs:
+  antall-filer:
+    description: 'Antall ord som ble erstattet'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'hash'
+  color: 'blue'
