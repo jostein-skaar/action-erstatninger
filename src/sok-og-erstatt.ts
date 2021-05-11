@@ -7,7 +7,7 @@ function sokOgErstatt(sok: string, erstatt: string, filer: string | string[], dr
     console.log(`Spesialtilfelle {VERSJON}, bruker ${erstattEndelig} i stedet for ${erstatt}`);
   }
 
-  console.log('filerGlob', filer);
+  console.log('filer', filer);
 
   const regex = new RegExp(`${sok}`, 'g');
   const konfig = {

@@ -21,7 +21,7 @@ jobs:
 
   bygg:
     # name: Node ${{ matrix.node_version }} - Bygg, test og lint
-    name: Node ${{ matrix.node }}
+    name: Bygg med Node.js ${{ matrix.node }}
     runs-on: ubuntu-latest
     strategy:
       matrix: # Tester ut å bruke både Node.js 12 og 14.

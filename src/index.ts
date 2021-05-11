@@ -17,7 +17,7 @@ try {
   } else {
     const antallErstatninger = sokOgErstatt(sok, erstatt, filer, dryRun);
     console.log(`Antall endrede filer: ${antallErstatninger}`);
-    core.setOutput('antall-filer', antallErstatninger);
+    core.setOutput('antall_filer', antallErstatninger);
   }
 
   // Get the JSON webhook payload for the event that triggered the workflow
