@@ -17,7 +17,7 @@ jobs:
           erstatt: 'v1.2.3'
           filer: './testfiler/**/*.js'
           dry-run: true
-      - run: echo "Antall erstatninger ${{ steps.erstatningersteg.outputs.antall }}"
+      - run: echo "Antall erstatninger ${{ steps.erstatningersteg.outputs.antall-erstatninger }}"
 
   bygg:
     # name: Node ${{ matrix.node_version }} - Bygg, test og lint

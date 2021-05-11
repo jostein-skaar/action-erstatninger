@@ -16,8 +16,8 @@ try {
     console.error('Mangler sok, erstatt og/eller filer.');
   } else {
     const antallErstatninger = sokOgErstatt(sok, erstatt, filer, dryRun);
-    console.log(`Antall endrede filer: ${antallErstatninger}`);
-    core.setOutput('antall_filer', antallErstatninger);
+    console.log(`Antall erstatninger: ${antallErstatninger}`);
+    core.setOutput('antall-erstatninger', antallErstatninger);
   }
 
   // Get the JSON webhook payload for the event that triggered the workflow

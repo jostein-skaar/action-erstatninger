@@ -18,7 +18,7 @@ inputs:
     required: false
 
 outputs:
-  antall-filer:
+  antall-erstatninger:
     description: 'Antall ord som ble erstattet'
 
 runs:
