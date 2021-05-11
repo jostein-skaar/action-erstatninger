@@ -21,11 +21,11 @@ jobs:
 
   bygg:
     # name: Node ${{ matrix.node_version }} - Bygg, test og lint
-    name: Node ${{ matrix.node_version }}
+    name: Node ${{ matrix.node }}
     runs-on: ubuntu-latest
     strategy:
       matrix: # Tester ut å bruke både Node.js 12 og 14.
-        node-version: [12.x, 14.x]
+        node: ['12', '14']
     steps:
       - uses: actions/checkout@v2
       - run: |
