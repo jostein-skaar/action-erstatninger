@@ -11,16 +11,16 @@ jobs:
         with:
           sok: '{VERSJON}'
           erstatt: 'v1.2.3'
-          filer: '/testfiler/**/*.js'
+          filer: './testfiler/**/*.js'
           dry-run: true
       - run: echo "Antall erstatninger ${{ steps.erstatningersteg.outputs.antall }}"
 
   bygg:
-    name: Node ${{ matrix.node_version }} - Bygg, test og lint
     runs-on: ubuntu-latest
     strategy:
       matrix: # Tester ut å bruke både Node.js 12 og 14.
         node-version: [12.x, 14.x]
+    name: Node ${{ matrix.node_version }} - Bygg, test og lint
     steps:
       - uses: actions/checkout@v2
       - run: |
@@ -28,14 +28,3 @@ jobs:
           npm test
           npm run lint
           npm run build
-
-  test2: # Sjekker at det som ligger i dist fungerer uten bygg
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./
-        with:
-          sok: '{VERSJON}'
-          erstatt: 'v1.2.3'
-          filer: '/testfiler/**/*.js'
-          dry-run: false

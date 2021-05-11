@@ -9,7 +9,8 @@
     "testw": "jest --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "v1": "git tag -fa v1 -m \"Oppdaterer v1-taggen\""
+    "v1:minor": "npm version minor && git tag -fa v1 -m \"Oppdaterer v1-taggen\" && git push origin v1 --force",
+    "v1:patch": "npm version patch && git tag -fa v1 -m \"Oppdaterer v1-taggen\" && git push origin v1 --force"
   },
   "eslintConfig": {
     "extends": [
